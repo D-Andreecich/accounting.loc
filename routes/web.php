@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route:: group(['middleware' => ['auth']], function (){
+    Route::get('/info', 'User\UserDataController@show');
+});
+
+Route:: group(['prefix' => 'admin', 'middleware' => ['auth']], function (){
+   Route::get('/users', ['uses' => 'Admin\AdminUpdateController@show', 'as' => 'show']);
+});
