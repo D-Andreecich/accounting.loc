@@ -24,6 +24,6 @@ Route:: group(['middleware' => ['auth']], function (){
     Route::get('/info', 'User\UserDataController@show');
 });
 
-Route:: group(['prefix' => 'admin', 'middleware' => ['auth']], function (){
+Route:: group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function (){
    Route::get('/users', ['uses' => 'Admin\AdminUpdateController@show', 'as' => 'show']);
 });

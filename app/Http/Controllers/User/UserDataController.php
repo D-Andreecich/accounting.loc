@@ -13,6 +13,7 @@ class UserDataController extends Controller
     public function show()
     {
         $userRole = Auth::user()->role;
+
         return view('info');
     }
 

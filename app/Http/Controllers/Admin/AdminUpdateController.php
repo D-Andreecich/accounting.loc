@@ -11,13 +11,14 @@ class AdminUpdateController extends Controller
 {
     public function show()
     {
-        $dataUsers = User::all('id', 'name', 'email', 'updated_at');
+        $dataUsers = User::all('id', 'name', 'email', 'updated_at', 'role');
         $data = array();
         foreach ($dataUsers as $user)
             $data[] = [
                 'id' => $user->id,
                 'name' => $user->name,
                 'email' => $user->email,
+                'role' => $user->role,
                 'updated_at' => $user->updated_at,
             ];
         return view('allUsers')->with('data', $data);
